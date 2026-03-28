@@ -63,18 +63,6 @@ export function PaperView({ post, onCommentAdded }) {
       
       <h3 style={{ marginTop: '2.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>Abstract</h3>
       <p style={{ textAlign: 'justify', lineHeight: 1.6 }}>{fakePost.content}</p>
-
-      <h3 style={{ marginTop: '2.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>1. Introduction</h3>
-      <p style={{ textAlign: 'justify', lineHeight: 1.6 }}>
-        This study investigates the implications of the presented phenomena within a broader academic context. 
-        The findings suggest significant correlation between initial data points and subsequent observed outcomes.
-      </p>
-      
-      <h3 style={{ marginTop: '2.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>2. Methodology</h3>
-      <p style={{ textAlign: 'justify', lineHeight: 1.6 }}>
-        The researchers employed a multi-faceted approach involving deep learning models and qualitative linguistic analysis 
-        to ensure the integrity and transformation of raw data into polished scholarly outputs.
-      </p>
       
       <div style={{ textAlign: 'center', margin: '3rem 0', padding: '2rem', background: 'var(--highlight-bg)', border: '1px solid var(--border-color)' }}>
         <span style={{ color: 'var(--text-muted)' }}>[Figure 1: Conceptual diagram of the data transformation process]</span>
