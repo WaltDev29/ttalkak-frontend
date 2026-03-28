@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* ====== THEME (Color) VARIABLES ====== */
+body.light-mode {
+  --bg-color: #ffffff;
+  --bg-card: #f9f9f9;
+  --text-main: #000000;
+  --text-muted: #555555;
+  --border-color: #dddddd;
+  --link-color: #0000ee;
+  --btn-bg: #ececec;
+  --btn-text: #333333;
+  --accent-color: #e64a19; /* humor light accent */
+  --highlight-bg: #ffebee;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --bg-card: #1e1e1e;
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
+  --border-color: #333333;
+  --link-color: #bb86fc;
+  --btn-bg: #333333;
+  --btn-text: #ffffff;
+  --accent-color: #03dac6; /* humor dark accent */
+  --highlight-bg: #2a2a2a;
+}
+
+/* ====== VIEW (Layout/Font) VARIABLES ====== */
+body.paper-mode {
+  --font-family-body: 'Judson', 'Times New Roman', serif;
+  --font-family-heading: 'Judson', 'Times New Roman', serif;
+  --max-content-width: 800px;
+}
+
+body.humor-mode {
+  --font-family-body: 'Noto Sans KR', sans-serif;
+  --font-family-heading: 'Noto Sans KR', sans-serif;
+  --max-content-width: 1200px;
+}
+
+/* ====== GLOBAL BASE ====== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+}
+
+.container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  transition: max-width 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+/* ====== ANIMATIONS ====== */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ====== SECRET TOGGLE BUTTON ====== */
+.secret-toggle {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  color: transparent;
+  border: none;
+  cursor: default; /* Not obvious */
+  z-index: 9999;
+  opacity: 0; /* Fully hidden by default in paper mode */
+  transition: opacity 0.3s ease;
+}
+
+/* Hover effect in Paper mode (faintly visible) */
+body.paper-mode .secret-toggle:hover {
+  opacity: 0.15;
+  background: #000;
+}
+
+/* Always visible in Humor mode */
+body.humor-mode .secret-toggle {
+  opacity: 1;
+  background: var(--btn-bg);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+/* Add an icon pseudo-element for Humor mode so it looks like a real button */
+body.humor-mode .secret-toggle::after {
+  content: "📖";
+  font-size: 1.2rem;
+}
